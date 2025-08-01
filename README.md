@@ -1,8 +1,25 @@
+
 # Admin Toko
 
 Aplikasi manajemen toko berbasis web untuk mempermudah pengelolaan data produk, pembelian, dan laporan.
 
 ---
+## Soal 
+
+Buat sistem sederhana admin page untuk input data pembelian, cancel pembelian oleh admin toko.
+Dengan database berikut
+‎- DATABASE Produk (buat 10 produk)
+‎- DATABASE Stock produk
+‎- DATABASE Pembelian
+‎
+‎dengan menggunakan:
+‎- Nodejs, express. js (EJS)
+‎- database sql
+‎- desain UI bebas
+
+‎Ketentuan pengerjaan:
+‎- Durasi pengerjaan 24 jam sejak arahan pretest dikirim di email
+‎- Upload file hasil tes ke Github dan berikan link repositori kedua tes tsb (beri nama file dan panduan penggunaan file anda)
 
 ## Cara Penggunaan
 
@@ -30,7 +47,7 @@ Pastikan Anda telah menginstal **Node.js versi 22.17.1** dan **MySQL** di komput
 
 ### Konfigurasi Database
 
-Aplikasi ini menggunakan database **MySQL**. Anda perlu export database
+Aplikasi ini menggunakan database **MySQL**. Anda perlu import database yang sudah di sediakan
 ---
 
 ## Fitur Utama
@@ -77,4 +94,4 @@ Berikut adalah beberapa skenario pengujian internal untuk memastikan fungsionali
 
 ### Laporan dan Dashboard
 * **Tampilan Dashboard Berhasil:** Dashboard berhasil menampilkan semua informasi yang relevan, seperti ringkasan penjualan, stok terlaris, dan data penting lainnya.
-* **Download Laporan Berhasil:** Pengguna berhasil mengunduh laporan penjualan dalam format yang ditentukan (misalnya PDF atau Excel) dengan data yang akurat.
+* **Download Laporan Berhasil:** Pengguna berhasil mengunduh laporan penjualan dalam format csv dengan data yang akurat.
