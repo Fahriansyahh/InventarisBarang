@@ -1,0 +1,72 @@
+<div class="min-h-screen ">
+<div class="mb-6">
+  <h1 class="text-2xl font-bold text-gray-800">Dashboard / Produk</h1>
+</div>
+
+<div class="flex justify-between items-center mb-4">
+  <h2 class="text-lg font-semibold text-gray-700">Daftar Produk</h2>
+
+  <div class="flex items-center gap-2">
+    <!-- Form Search -->
+    <form method="GET" action="/produk" class="flex items-center gap-2">
+      <input type="text" name="search" placeholder="Cari nama produk..."
+        class="border px-3 py-2 rounded w-64"
+        value="<%= typeof search !== 'undefined' ? search : '' %>">
+      <button type="submit"
+        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Cari
+      </button>
+    </form>
+
+    <!-- Tombol Tambah Produk -->
+    <a href="/produk/create"
+      class="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md shadow transition">
+      + Tambah Produk
+    </a>
+  </div>
+</div>
+
+
+
+<div class="max-h-80 overflow-y-auto bg-white shadow rounded-lg ">
+  <table class=" min-w-full divide-y divide-gray-200 " >
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stok</th>
+        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      <% produk.forEach(p => { %>
+        <tr>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= p.nama %></td>
+          <td class="px-6 py-4 text-sm text-gray-800">Rp <%= p.harga.toLocaleString() %></td>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= p.stok?? 0 %></td>
+<td class="px-2 py-4 text-right space-x-0">
+  <!-- Tombol Edit -->
+  <a href="/produk/edit/<%= p.id %>" class="text-blue-600 hover:text-blue-800" title="Edit">
+    <!-- Ikon Pulpen (Heroicons Pencil) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M9 11L3 21l10-6 6-6-4-4z" />
+    </svg>
+  </a>
+
+<form action="/produk/delete/<%= p.id %>" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')" style="display: inline;">
+  <button type="submit" class="text-red-600 hover:text-red-800" title="Hapus">
+    <!-- Ikon Tong Sampah (Heroicons Trash) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-4 0a1 1 0 00-1 1v1h6V4a1 1 0 00-1-1m-4 0h4" />
+    </svg>
+  </button>
+</form>
+
+</td>
+
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+</div>

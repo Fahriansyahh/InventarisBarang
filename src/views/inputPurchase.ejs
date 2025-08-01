@@ -1,0 +1,76 @@
+<div class="min-h-screen mt-6">
+  <div class="mb-6 ">
+    <h1 class="text-2xl font-bold text-gray-800">Dashboard / Input Pembelian / Create</h1>
+  </div>
+
+  <div class="bg-white p-6 rounded-lg shadow w-full max-w-screen-lg mx-auto">
+    <h2 class="text-lg font-semibold mb-4">Tambah Pembelian</h2>
+
+   
+ <form action="/pembelian/store" method="POST" class="grid grid-cols-2 gap-4">
+
+  <!-- Select Produk -->
+  <div >
+    <label for="produk_id" class="block font-semibold mb-1">Pilih Produk</label>
+    <select name="produk_id" id="produk_id" required class="border p-2 w-full rounded max-h-48 overflow-y-auto">
+      <option disabled selected>Pilih produk</option>
+      <% produk.forEach(p => { %>
+        <option value="<%= p.id %>" data-harga="<%= p.harga %>">
+          <%= p.nama %> (Stok: <%= p.stok ?? 0 %>) - Rp<%= p.harga.toLocaleString() %>
+        </option>
+      <% }) %>
+    </select>
+  </div>
+ <div >
+    <label for="status" class="block font-semibold mb-1">Status</label>
+    <select name="status" id="status" required class="border p-2 w-full rounded">
+      <option value="selesai" selected>Selesai</option>
+    </select>
+  </div>
+  <!-- Input Jumlah -->
+  <div>
+    <label for="jumlah" class="block font-semibold mb-1">Jumlah</label>
+    <input type="number" name="jumlah" id="jumlah" min="1" required class="border p-2 w-full rounded">
+  </div>
+
+  <!-- Input Total (otomatis) -->
+  <div>
+    <label for="total" class="block font-semibold mb-1">Total</label>
+    <input type="number" name="total" id="total" value="0" class="border p-2 w-full rounded bg-gray-100" readonly>
+  </div>
+
+  <!-- Pilih Status -->
+ 
+
+  <!-- Submit -->
+  <div class="col-span-2">
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+      Simpan Pembelian
+    </button>
+  </div>
+</form>
+
+<script>
+  const produkSelect = document.getElementById("produk_id");
+  const jumlahInput = document.getElementById("jumlah");
+  const totalInput = document.getElementById("total");
+
+  let hargaProduk = 0;
+
+  produkSelect.addEventListener("change", function () {
+    const selectedOption = produkSelect.options[produkSelect.selectedIndex];
+    hargaProduk = selectedOption.getAttribute("data-harga") || 0;
+    hitungTotal();
+  });
+
+  jumlahInput.addEventListener("input", hitungTotal);
+
+  function hitungTotal() {
+    const jumlah = parseInt(jumlahInput.value || "0");
+    const total = jumlah * parseInt(hargaProduk);
+    totalInput.value = total || 0;
+  }
+</script>
+
+  </div>
+</div>

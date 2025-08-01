@@ -1,0 +1,68 @@
+<div class="min-h-screen ">
+<div class="mb-6">
+  <h1 class="text-2xl font-bold text-gray-800">Dashboard / Pembelian</h1>
+</div>
+
+<div class="flex justify-between items-center mb-4">
+  <h2 class="text-lg font-semibold text-gray-700">Daftar Pembelian</h2>
+
+  <div class="flex items-center gap-2">
+    <!-- Form Search -->
+   <form method="GET" action="/pembelian" class="flex items-center gap-2">
+  <input type="date" name="tanggal" placeholder="Cari tanggal..."
+    class="border px-3 py-2 rounded w-64"
+    value="<%= typeof tanggal !== 'undefined' ? tanggal : '' %>">
+  <button type="submit"
+    class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+    Cari
+  </button>
+</form>
+
+    <!-- Tombol Tambah Produk -->
+   <a href="/pembelian/download?<%= tanggal ? `tanggal=${tanggal}` : '' %>"
+  class="bg-green-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow transition">
+  Download CSV
+</a>
+
+  </div>
+</div>
+
+<div class="max-h-80 overflow-y-auto bg-white shadow rounded-lg">
+  <table class="min-w-full divide-y divide-gray-200" >
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Produk</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Harga</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jumlah</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
+        <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+      <% pembelian.forEach(p => { %>
+        <tr>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= p.nama %></td>
+          <td class="px-6 py-4 text-sm text-gray-800">Rp <%= p.harga.toLocaleString() %></td>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= p.jumlah %></td>
+          <td class="px-6 py-4 text-sm text-gray-800">Rp <%= p.total.toLocaleString() %></td>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= p.status %></td>
+          <td class="px-6 py-4 text-sm text-gray-800"><%= new Date(p.created_at).toLocaleDateString("id-ID") %></td>
+          <td class="px-6 py-4 text-sm text-gray-80 ">
+           
+            <form action="/pembelian/delete/<%= p.id %>" method="POST" onsubmit="return confirm('Yakin ingin menghapus?')" style="display: inline;">
+              <button type="submit" class="text-red-600 hover:text-red-800" title="Hapus">
+               Cancel
+              </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+
+
+</div>
