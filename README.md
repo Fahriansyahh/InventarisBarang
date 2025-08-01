@@ -14,8 +14,8 @@ Pastikan Anda telah menginstal **Node.js versi 22.17.1** dan **MySQL** di komput
 
 1.  Clone repositori ini:
     ```bash
-    git clone [URL_REPOSITORY_ANDA]
-    cd admin-toko
+    git clone https://github.com/Fahriansyahh/InventarisBarang.git
+    cd LATIHAN4
     ```
 
 2.  Instal dependensi yang diperlukan:
@@ -30,8 +30,7 @@ Pastikan Anda telah menginstal **Node.js versi 22.17.1** dan **MySQL** di komput
 
 ### Konfigurasi Database
 
-Aplikasi ini menggunakan database **MySQL**. Anda perlu membuat database dan mengonfigurasi koneksinya di file `.env` atau file konfigurasi database yang relevan di proyek Anda.
-
+Aplikasi ini menggunakan database **MySQL**. Anda perlu export database
 ---
 
 ## Fitur Utama
