@@ -5,9 +5,6 @@ Aplikasi manajemen toko berbasis web untuk mempermudah pengelolaan data produk, 
 
 ---
 
-## Link Chatbot
-https://github.com/Fahriansyahh/chatbot
-
 
 ## Soal 
 
@@ -100,3 +97,6 @@ Berikut adalah beberapa skenario pengujian internal untuk memastikan fungsionali
 ### Laporan dan Dashboard
 * **Tampilan Dashboard Berhasil:** Dashboard berhasil menampilkan semua informasi yang relevan, seperti ringkasan penjualan, stok terlaris, dan data penting lainnya.
 * **Download Laporan Berhasil:** Pengguna berhasil mengunduh laporan penjualan dalam format csv dengan data yang akurat.
+
+### Link Chatbot
+https://github.com/Fahriansyahh/chatbot
