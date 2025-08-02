@@ -4,6 +4,11 @@
 Aplikasi manajemen toko berbasis web untuk mempermudah pengelolaan data produk, pembelian, dan laporan.
 
 ---
+
+## Link Chatbot
+https://github.com/Fahriansyahh/chatbot
+
+
 ## Soal 
 
 Buat sistem sederhana admin page untuk input data pembelian, cancel pembelian oleh admin toko.
