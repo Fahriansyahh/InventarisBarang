@@ -67,7 +67,7 @@ Catat setiap transaksi pembelian yang terjadi.
 
 ### Laporan
 Buat dan unduh laporan penjualan untuk analisis bisnis.
-![Tampilan Laporan](src/images/laporan.png)
+![Tampilan Laporan](src/images/daftar.png)
 
 ---
 
